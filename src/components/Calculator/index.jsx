@@ -3,10 +3,12 @@ import React from 'react';
 import { Container } from './styles';
 
 import Button from '../../components/Button';
+import Display from '../../components/Display';
 
 const Calculator = () => {
   return (
     <Container>
+      <Display value={"100"}/>
       <Button label="AC"/>
       <Button label="/"/>
       <Button label="7"/>
