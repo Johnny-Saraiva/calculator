@@ -1,10 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import GlobalStyles from './styles/global';
+import Calculator from './components/Calculator';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <h1>Calculator</h1>
+    <Calculator />
+    <GlobalStyles />
   </React.StrictMode>,
   document.getElementById('root')
 );
