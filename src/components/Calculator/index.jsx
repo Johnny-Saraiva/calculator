@@ -1,59 +1,66 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Container } from './styles';
 
 import Button from '../../components/Button';
 import Display from '../../components/Display';
 
+
 const Calculator = () => {
   
-
+  const [displayValue, setDisplayValue] = useState('');
+ 
   const clearMemory = () => {
-    console.log('Limpar!');
+    setDisplayValue('');
   }
 
-  const setOperation = (operation) => {
-    console.log(operation);
+  const handleClick = (value) => {
+    if (value === '.' && displayValue.includes('.')) {
+      return;
+    }
+    setDisplayValue(displayValue.concat(value));
   }
 
-  const addDigit = (number) => {
-    console.log(number);
+  const handleBackspace = () => {
+    setDisplayValue(displayValue.slice(0, -1));
   }
 
   return (
+
     <Container>
-      <Display > 100 </Display>
-      <Button isTriple onClick={() => clearMemory()}> AC </Button>
+      <Display > {displayValue} </Display>
+      <Button isDouble onClick={() => clearMemory()}> Clear </Button>
+      <Button onClick={() => handleBackspace()}> C </Button>
       <Button 
         className="operator" 
-        onClick={(event) => setOperation(event.target.innerHTML)}
+         onClick={(event) => handleClick(event.target.innerText)}
       > / </Button>
-      <Button onClick={(event) => addDigit(event.target.innerHTML)}> 7 </Button>
-      <Button onClick={(event) => addDigit(event.target.innerHTML)}> 8 </Button>
-      <Button onClick={(event) => addDigit(event.target.innerHTML)}> 9 </Button>
+      <Button onClick={(event) => handleClick(event.target.innerText)}> 7 </Button>
+      <Button onClick={(event) => handleClick(event.target.innerText)}> 8 </Button>
+      <Button onClick={(event) => handleClick(event.target.innerText)}> 9 </Button>
       <Button 
         className="operator"
-        onClick={(event) => setOperation(event.target.innerHTML)}
+         onClick={(event) => handleClick(event.target.innerText)}
       > * </Button>
-      <Button onClick={(event) => addDigit(event.target.innerHTML)}> 4 </Button>
-      <Button onClick={(event) => addDigit(event.target.innerHTML)}> 5 </Button>
-      <Button onClick={(event) => addDigit(event.target.innerHTML)}> 6 </Button>
+      <Button onClick={(event) => handleClick(event.target.innerText)}> 4 </Button>
+      <Button onClick={(event) => handleClick(event.target.innerText)}> 5 </Button>
+      <Button onClick={(event) => handleClick(event.target.innerText)}> 6 </Button>
       <Button 
         className="operator"
-        onClick={(event) => setOperation(event.target.innerHTML)}
+         onClick={(event) => handleClick(event.target.innerText)}
       > - </Button>
-      <Button onClick={(event) => addDigit(event.target.innerHTML)}> 1 </Button>
-      <Button onClick={(event) => addDigit(event.target.innerHTML)}> 2 </Button>
-      <Button onClick={(event) => addDigit(event.target.innerHTML)}> 3 </Button>
+      <Button onClick={(event) => handleClick(event.target.innerText)}> 1 </Button>
+      <Button onClick={(event) => handleClick(event.target.innerText)}> 2 </Button>
+      <Button onClick={(event) => handleClick(event.target.innerText)}> 3 </Button>
       <Button 
         className="operator"
-        onClick={(event) => setOperation(event.target.innerHTML)}
+         onClick={(event) => handleClick(event.target.innerText)}
       > + </Button>
-      <Button onClick={(event) => addDigit(event.target.innerHTML)}isDouble> 0 </Button>
-      <Button onClick={(event) => addDigit(event.target.innerHTML)}> . </Button>
+      <Button onClick={(event) => handleClick(event.target.innerText)}isDouble> 0 </Button>
+      <Button onClick={(event) => handleClick(event.target.innerText)}> . </Button>
       <Button 
         className="operator"
-        onClick={(event) => setOperation(event.target.innerHTML)}
+         onClick={(event) => handleClick(event.target.innerText)}
       > = </Button>
     </Container>
   )
