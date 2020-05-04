@@ -15,14 +15,25 @@ const Calculator = () => {
   }
 
   const handleClick = (value) => {
-    if (value === '.' && displayValue.includes('.')) {
-      return;
+    const simbols = ['.', '+', '-', '*', '/'];
+    
+    if (simbols.includes(value) && displayValue.substr(-1).includes(value)) {
+      return ;
     }
+    
     setDisplayValue(displayValue.concat(value));
   }
 
   const handleBackspace = () => {
     setDisplayValue(displayValue.slice(0, -1));
+  }
+
+  const handleResult = () => {
+    try {
+      setDisplayValue(eval(displayValue).toString());   
+    } catch (error) {
+      setDisplayValue('Error');
+    }
   }
 
   return (
@@ -60,7 +71,7 @@ const Calculator = () => {
       <Button onClick={(event) => handleClick(event.target.innerText)}> . </Button>
       <Button 
         className="operator"
-         onClick={(event) => handleClick(event.target.innerText)}
+         onClick={(event) => handleResult(event.target.innerText)}
       > = </Button>
     </Container>
   )
