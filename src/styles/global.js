@@ -25,7 +25,7 @@ export default createGlobalStyle`
   }
 
   body, input, button {
-    font-family: 'RobotoMono', monospace;
+    font-family: 'Roboto Mono', monospace;
   }
 
   button {
