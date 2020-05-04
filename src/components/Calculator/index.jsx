@@ -8,7 +8,7 @@ import Display from '../../components/Display';
 const Calculator = () => {
   return (
     <Container>
-      <Display value={"100"}/>
+      <Display value={100}/>
       <Button label="AC"/>
       <Button label="/"/>
       <Button label="7"/>
@@ -25,7 +25,7 @@ const Calculator = () => {
       <Button label="+"/>
       <Button label="0"/>
       <Button label="."/>
-      <Button label="="/>
+      <Button label="="/> 
     </Container>
   )
 }

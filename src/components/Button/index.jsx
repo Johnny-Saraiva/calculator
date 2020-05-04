@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { ButtonStyle } from './styles';
+import { Button } from './styles';
 
-const Buttons = ( {label} ) => {
+const Buttons = ( props ) => {
   return (
-      <ButtonStyle>{label}</ButtonStyle>
+  <Button>{props.label}</Button>
   )
 }
 
