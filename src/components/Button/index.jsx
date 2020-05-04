@@ -2,9 +2,13 @@ import React from 'react';
 
 import { Button } from './styles';
 
-const Buttons = ( props ) => {
+const Buttons = ({children, ...rest}) => {
   return (
-  <Button>{props.label}</Button>
+  <Button {...rest}>
+
+    {children}
+
+  </Button>
   )
 }
 
