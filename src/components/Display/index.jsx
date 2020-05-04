@@ -2,8 +2,12 @@ import React from 'react';
 
 import { Container } from './styles';
 
-const Display = (props) => {
-  return <Container>{props.value}</Container>
+const Display = ({children, ...rest }) => {
+  return (
+  <Container {...rest}>
+    {children}
+  </Container>
+  )
 }
 
 export default Display;

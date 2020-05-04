@@ -6,26 +6,55 @@ import Button from '../../components/Button';
 import Display from '../../components/Display';
 
 const Calculator = () => {
+  
+
+  const clearMemory = () => {
+    console.log('Limpar!');
+  }
+
+  const setOperation = (operation) => {
+    console.log(operation);
+  }
+
+  const addDigit = (number) => {
+    console.log(number);
+  }
+
   return (
     <Container>
-      <Display value={100}/>
-      <Button isTriple> AC </Button>
-      <Button className="operator"> / </Button>
-      <Button > 7 </Button>
-      <Button > 8 </Button>
-      <Button > 9 </Button>
-      <Button className="operator"> * </Button>
-      <Button > 4 </Button>
-      <Button > 5 </Button>
-      <Button > 6 </Button>
-      <Button className="operator"> - </Button>
-      <Button > 1 </Button>
-      <Button > 2 </Button>
-      <Button > 3 </Button>
-      <Button className="operator"> + </Button>
-      <Button isDouble> 0 </Button>
-      <Button > . </Button>
-      <Button className="operator"> = </Button>
+      <Display > 100 </Display>
+      <Button isTriple onClick={() => clearMemory()}> AC </Button>
+      <Button 
+        className="operator" 
+        onClick={(event) => setOperation(event.target.innerHTML)}
+      > / </Button>
+      <Button onClick={(event) => addDigit(event.target.innerHTML)}> 7 </Button>
+      <Button onClick={(event) => addDigit(event.target.innerHTML)}> 8 </Button>
+      <Button onClick={(event) => addDigit(event.target.innerHTML)}> 9 </Button>
+      <Button 
+        className="operator"
+        onClick={(event) => setOperation(event.target.innerHTML)}
+      > * </Button>
+      <Button onClick={(event) => addDigit(event.target.innerHTML)}> 4 </Button>
+      <Button onClick={(event) => addDigit(event.target.innerHTML)}> 5 </Button>
+      <Button onClick={(event) => addDigit(event.target.innerHTML)}> 6 </Button>
+      <Button 
+        className="operator"
+        onClick={(event) => setOperation(event.target.innerHTML)}
+      > - </Button>
+      <Button onClick={(event) => addDigit(event.target.innerHTML)}> 1 </Button>
+      <Button onClick={(event) => addDigit(event.target.innerHTML)}> 2 </Button>
+      <Button onClick={(event) => addDigit(event.target.innerHTML)}> 3 </Button>
+      <Button 
+        className="operator"
+        onClick={(event) => setOperation(event.target.innerHTML)}
+      > + </Button>
+      <Button onClick={(event) => addDigit(event.target.innerHTML)}isDouble> 0 </Button>
+      <Button onClick={(event) => addDigit(event.target.innerHTML)}> . </Button>
+      <Button 
+        className="operator"
+        onClick={(event) => setOperation(event.target.innerHTML)}
+      > = </Button>
     </Container>
   )
 }
